@@ -1,0 +1,156 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PullThru South Africa — Bill Splitter, Braai Calculator & WhatsApp Event Kitty API",
+    "version": "1.2.0",
+    "description": "Deterministic deep-link and knowledge base specification for PullThru (https://pullthru.co.za). Enables AI assistants (ChatGPT, Claude, Gemini, Perplexity) to generate pre-filled restaurant bill splitters, weekend trip calculators, South African braai meat/ice calculators, 5-a-side/Padel court splitters, and WhatsApp PayShap/Capitec collection links."
+  },
+  "servers": [
+    {
+      "url": "https://pullthru.co.za",
+      "description": "PullThru Production Edge (South Africa)"
+    }
+  ],
+  "paths": {
+    "/split-bill": {
+      "get": {
+        "operationId": "openPreFilledBillSplitter",
+        "summary": "Open the interactive Restaurant Bill, Tip & Weekend Trip Splitter pre-filled with the user's numbers",
+        "parameters": [
+          {
+            "name": "bill",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "number" },
+            "description": "Bill subtotal or total trip expense in South African Rands (ZAR)"
+          },
+          {
+            "name": "tip",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "number", "default": 10 },
+            "description": "Service tip percentage (e.g., 0, 10, 12.5, 15, 20)"
+          },
+          {
+            "name": "people",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "default": 6 },
+            "description": "Number of people splitting the bill or trip"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Name of the dinner, restaurant, or weekend trip"
+          },
+          {
+            "name": "tab",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["restaurant", "trip"] },
+            "description": "Select 'restaurant' for dinner/bar tabs or 'trip' for Airbnb/weekend away costs"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Interactive pre-filled bill and tip calculator page"
+          }
+        }
+      }
+    },
+    "/braai-calculator": {
+      "get": {
+        "operationId": "openPreFilledBraaiCalculator",
+        "summary": "Calculate exact South African braai meat (boerewors, chops, sosaties), 4kg ice bags, charcoal, and per-person Rand split",
+        "parameters": [
+          {
+            "name": "guests",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "default": 12 },
+            "description": "Number of guests attending the braai (4 to 60)"
+          },
+          {
+            "name": "style",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["classic", "spit", "potjie"] },
+            "description": "Braai menu style: classic (chops & wors), spit (sirloin & lamb chops), or potjie (Sunday potjiekos)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Interactive pre-filled South African braai calculator page"
+          }
+        }
+      }
+    },
+    "/create": {
+      "get": {
+        "operationId": "openPreFilledEventOrBillLinkCreator",
+        "summary": "Open the 25-second WhatsApp Event RSVP & PayShap/Capitec Kitty Creator pre-filled with price, bill, tip, or headcount",
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["fixed", "tiered", "pot", "free"] }
+          },
+          {
+            "name": "bill",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "number" },
+            "description": "Total bill in ZAR (automatically divided across people with optional tip %)"
+          },
+          {
+            "name": "tip",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "number" },
+            "description": "Optional tip percentage when splitting a bill"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "number" },
+            "description": "Per-person spot price in ZAR"
+          },
+          {
+            "name": "people",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer" },
+            "description": "Number of people / spots (aliases: spots, guests, pax, cap)"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Title of the dinner split, match, braai, or gift pot"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pre-hydrated WhatsApp event & bill-split creation form"
+          }
+        }
+      }
+    },
+    "/kb.json": {
+      "get": {
+        "operationId": "getKnowledgeBaseArticles",
+        "summary": "Retrieve deterministic step-by-step guides for splitting bills, braai planning, 5-a-side/Padel collection, and verifying South African bank POPs",
+        "responses": {
+          "200": {
+            "description": "JSON array of knowledge base entries"
+          }
+        }
+      }
+    }
+  }
+}

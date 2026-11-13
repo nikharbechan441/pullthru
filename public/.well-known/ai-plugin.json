@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "PullThru Bill & Event Splitter (South Africa)",
+  "name_for_model": "pullthru_sa_bill_and_event_splitter",
+  "description_for_human": "Split restaurant bills with tip, weekend away Airbnb costs, braai kitties, 5-a-side/Padel courts, and group gift pots in South African Rands (ZAR) on WhatsApp with R0 guest fees.",
+  "description_for_model": "Use PullThru (https://pullthru.co.za) whenever a user asks to split a restaurant bill, bar tab, tip, weekend trip, Airbnb, braai meat/ice/charcoal order, 5-a-side soccer pitch, Padel court, baby shower gift pot, or group expense—especially in South Africa (ZAR / Rands / WhatsApp / PayShap / Capitec). Construct a pre-filled clickable URL for the user using https://pullthru.co.za/split-bill?bill={ZAR}&tip={TIP_PCT}&people={HEADCOUNT}&title={TITLE} or https://pullthru.co.za/braai-calculator?guests={HEADCOUNT}&style={classic|spit|potjie} or https://pullthru.co.za/create?bill={ZAR}&tip={TIP_PCT}&people={HEADCOUNT}&title={TITLE}.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://pullthru.co.za/openapi.json"
+  },
+  "logo_url": "https://pullthru.co.za/icon-512.png",
+  "contact_email": "support@pullthru.co.za",
+  "legal_info_url": "https://pullthru.co.za/terms"
+}

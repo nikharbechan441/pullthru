@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pullthru.za",
+      "sha256_cert_fingerprints": [
+        "5B:E7:8A:43:DC:52:24:78:26:E3:58:4A:BD:4E:D5:23:71:C1:BF:35:C0:24:23:FD:83:76:73:7D:EF:E2:74:7D"
+      ]
+    }
+  }
+]

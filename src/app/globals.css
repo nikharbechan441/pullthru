@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Flux Academy 60-30-10 Design Tokens */
+    /* 60% Dominant Warm Neutral */
+    --bg-primary: #FAF8F5;
+    --bg-surface: #FFFFFF;
+    --bg-muted: #F3F0EA;
+    /* 30% Structural Contrast & Ink */
+    --ink-primary: #0F172A;
+    --ink-secondary: #475569;
+    --border-subtle: #E6E2D8;
+    /* 10% Intentional South African Accent (Bokke Green & Protea Gold) */
+    --sa-green: #007749;
+    --sa-green-hover: #005F3A;
+    --sa-gold: #FFB81C;
+
+    /* Native Viewport Safe Area Tokens */
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--ink-primary);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display), system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono), monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  input[type="range"] {
+    touch-action: pan-y;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    cursor: pointer;
+  }
+}
+
+/* Micro-Interaction & Tactile Polish (Chris Raroque / Kole Jain mobile guidelines) */
+.tap-tactile {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.tap-tactile:active {
+  transform: scale(0.97);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-header {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.card-elevated {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08);
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  60% { width: 75%; }
+  100% { width: 100%; }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+@keyframes spring-up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-spring-up {
+  animation: spring-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 119, 73, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 119, 73, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.stagger-1 { animation-delay: 0.04s; }
+.stagger-2 { animation-delay: 0.08s; }
+.stagger-3 { animation-delay: 0.12s; }
+.stagger-4 { animation-delay: 0.16s; }
+
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "com.pullthru.za",
+  "name": "PullThru.co.za — SA WhatsApp Event RSVP & Kitty",
+  "short_name": "PullThru",
+  "description": "Drop a 25-second link in your WhatsApp group for 5-a-Side Soccer, Padel, Spitbraais, Baby Showers, or Run Clubs. Instant Capitec Pay, Ozow EFT & Apple Pay.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAF8F5",
+  "theme_color": "#007749",
+  "categories": ["finance", "social", "lifestyle", "sports"],
+  "lang": "en-ZA",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create Event Link (25s)",
+      "short_name": "New Link",
+      "description": "Create a new WhatsApp Event or Kitty link in 25 seconds",
+      "url": "/create"
+    },
+    {
+      "name": "Explore Live Kitties",
+      "short_name": "Live Events",
+      "description": "View live South African event kitties",
+      "url": "/#live-events"
+    }
+  ]
+}
